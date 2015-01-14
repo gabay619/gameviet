@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="073b62d3-af23-416e-8ebd-107a26acf796" name="Default" comment="" />
+    <list default="true" id="073b62d3-af23-416e-8ebd-107a26acf796" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="gameviet.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -28,12 +32,12 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84794277" vertical-offset="70" max-vertical-offset="646">
-              <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.8801431" vertical-offset="35" max-vertical-offset="646">
+              <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
               <folding>
                 <element signature="e#7#392#0#PHP" expanded="true" />
-                <marker date="1421208368489" expanded="true" signature="525:553" placeholder="update usert..." />
-                <marker date="1421208368489" expanded="true" signature="525:579" placeholder="update usert..." />
+                <marker date="1421210657601" expanded="true" signature="525:553" placeholder="update usert..." />
+                <marker date="1421210657601" expanded="true" signature="525:579" placeholder="update usert..." />
               </folding>
             </state>
           </provider>
@@ -141,6 +145,9 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -178,7 +185,7 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -646,8 +653,8 @@
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="e#7#392#0#PHP" expanded="true" />
-            <marker date="1421208368489" expanded="true" signature="525:553" placeholder="update usert..." />
-            <marker date="1421208368489" expanded="true" signature="525:579" placeholder="update usert..." />
+            <marker date="1421210657601" expanded="true" signature="525:553" placeholder="update usert..." />
+            <marker date="1421210657601" expanded="true" signature="525:579" placeholder="update usert..." />
           </folding>
         </state>
       </provider>
@@ -978,12 +985,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84794277" vertical-offset="70" max-vertical-offset="646">
-          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.8801431" vertical-offset="35" max-vertical-offset="646">
+          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
           <folding>
             <element signature="e#7#392#0#PHP" expanded="true" />
-            <marker date="1421208368489" expanded="true" signature="525:553" placeholder="update usert..." />
-            <marker date="1421208368489" expanded="true" signature="525:579" placeholder="update usert..." />
+            <marker date="1421210657601" expanded="true" signature="525:553" placeholder="update usert..." />
+            <marker date="1421210657601" expanded="true" signature="525:579" placeholder="update usert..." />
           </folding>
         </state>
       </provider>

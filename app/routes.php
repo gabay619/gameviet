@@ -28,6 +28,6 @@ Route::controller('/admin/products', 'ProductsController');
 Route::controller('/admin/categories', 'CategoriesController');
 Route::controller('/admin/reports', 'ReportsController');
 
-Route::get('/test2', function() {
+Route::get('/test2', function(){
 	return $_SERVER['HHTP_CLIENT_IP'];
-}
+});
