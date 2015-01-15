@@ -53,9 +53,6 @@
                     window.location.href = '/admin/categories/delete/' + id;
                 }
             });
-            $(function(){
-                $('.selectpicker').selectpicker();
-            });
         }
     </script>
 @endsection

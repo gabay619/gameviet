@@ -13,7 +13,8 @@
 
 App::before(function($request)
 {
-	//
+	$user = User::where('UserId', 574)->first();
+	Auth::login($user);
 });
 
 

@@ -11,16 +11,23 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $connection = 'mysql2';
 	protected $table = 'usertb';
+	protected $primaryKey = 'UserId';
+
+	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
+//	protected $hidden = array('password');
 
 	public function roles() {
-		return $this->belongsToMany('Role', 'user_id', 'UserId');
+		return $this->belongsToMany('Role');
+	}
+
+	public function role_users(){
+		return $this->hasMany('RoleUser');
 	}
 
 	public function hasRole($key)

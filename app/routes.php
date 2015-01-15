@@ -13,7 +13,11 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+//	$user = User::where('UserId', 574)->first();
+	$roles = Auth::user()->roles()->get();
+	foreach($roles as $role){
+		echo $role->role_name."<br>";
+	}
 });
 
 Route::get('/test', function() {
@@ -27,6 +31,7 @@ Route::get('/admin', 'AdminBaseController@index');
 Route::controller('/admin/products', 'ProductsController');
 Route::controller('/admin/categories', 'CategoriesController');
 Route::controller('/admin/reports', 'ReportsController');
+Route::controller('/admin/users', 'UsersController');
 
 Route::get('/test2', function(){
 	return $_SERVER['HHTP_CLIENT_IP'];

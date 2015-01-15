@@ -78,9 +78,6 @@
                     window.location.href = '/admin/products/delete/' + id;
                 }
             });
-            $(function(){
-                $('.selectpicker').selectpicker();
-            });
         }
     </script>
 @endsection

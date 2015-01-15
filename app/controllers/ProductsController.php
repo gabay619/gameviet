@@ -91,7 +91,7 @@ class ProductsController extends AdminBaseController {
 		if(Input::has('category')) {
 			foreach (Input::get('category') as $aCate) {
 				$newProductCategory = new ProductCategory();
-				$newProductCategory->article_id = $record->id;
+				$newProductCategory->product_id = $record->id;
 				$newProductCategory->category_id = $aCate;
 				$newProductCategory->save();
 			}

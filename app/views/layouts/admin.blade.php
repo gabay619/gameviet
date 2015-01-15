@@ -25,6 +25,9 @@
             <section class="collapse navbar-left navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
+                        <a href="/admin/users/list" class="dropdown-toggle">User</a>
+                    </li>
+                    <li>
                         <a href="/admin/products/list" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
                         <ul class="dropdown-menu multi-level">
                             <li>

@@ -1,6 +1,7 @@
 <?php
 
 class Role extends \Eloquent {
+	protected $connection = 'mysql';
 	protected $fillable = [];
 
 	protected $table = 'roles';
@@ -11,6 +12,10 @@ class Role extends \Eloquent {
 
 	public function inherited_role(){
 		return $this->belongsTo('Role','inherited_roleid');
+	}
+
+	public function user(){
+		return $this->belongsToMany('User');
 	}
 
 	public static function boot()

@@ -60,7 +60,7 @@ class CategoriesController extends AdminBaseController {
 		if(Input::has('imageFile')){
 			$newTopicImg = new Upload();
 			$newTopicImg->path = Input::get('imageFile');
-			$newTopicImg->uploadable_type = UPLOADABLE_TYPE_PRODUCT;
+			$newTopicImg->uploadable_type = UPLOADABLE_TYPE_CATE;
 			$newTopicImg->uploadable_id = $record->id;
 			$newTopicImg->save();
 		}
