@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('title')
-    Sửa Sản phẩm
+    Sửa Danh mục
 @endsection
 
 @section('content')
-    <h3><a href="/admin/products/list">Quản lý Sản phẩm </a> &raquo; Sửa Sản phẩm {{$item->name}}</h3>
+    <h3><a href="/admin/categories/list">Quản lý Danh mục </a> &raquo; Sửa danh mục {{$item->name}}</h3>
     <div class="ajaxMsg"></div>
 
     {{Form::open(array('url'=>'#', 'class'=>'form-horizontal form-top-margin' , 'role'=>'form'))}}
@@ -13,7 +13,7 @@
     <div class="form-group">
         {{ Form::label( "txtName" , 'Tên (*)' , array( 'class'=>'col-lg-2 control-label' ) ) }}
         <div class="col-lg-10">
-            {{ Form::text( "txtName" , $item->name , array( 'class'=>'form-control' , 'placeholder'=>'Nhập tên Sản phẩm' ) ) }}
+            {{ Form::text( "txtName" , $item->name , array( 'class'=>'form-control' , 'placeholder'=>'Nhập tên Danh mục' ) ) }}
         </div>
     </div>
 
@@ -25,19 +25,11 @@
         </div>
     </div>
 
-    {{-- Prize --}}
-    <div class="form-group">
-        {{Form::label("txtPrice" , 'Giá (VNĐ)' , array('class'=>'col-lg-2 control-label'))}}
-        <div class="col-lg-6">
-            {{Form::text('txtPrice',$item->price,array('class'=>'form-control', 'placeholder'=>'Nhập giá'))}}
-        </div>
-    </div>
-
     <div class="form-group">
         <div class="col-lg-2">
         </div>
         <div class="col-lg-5">
-            <a href="javascript:getTopicImg();" class="btn btn-info btn-sm" >Chọn ảnh chủ đề</a>
+            <a href="javascript:getTopicImg();" class="btn btn-info btn-sm" >Chọn ảnh đại diện</a>
             &nbsp;
             <a id="btnRemoveTopicImg" href="javascript:removeTopicImg();" class="btn btn-danger btn-sm" >Xóa ảnh</a>
             <div style="background: #F8F8F8; margin: 0 auto; padding: 5px">
@@ -46,21 +38,6 @@
             <div>
                 <span id="spnFileName" class="bg-info">{{$topicImg? $topicImg->path: ''}}</span>
             </div>
-        </div>
-    </div>
-
-    {{-- category--}}
-    <div class="form-group">
-        {{ Form::label( "cboCate" , 'Danh mục' , array( 'class'=>'col-lg-2 control-label' ) ) }}
-        <div class="col-lg-10">
-            {{Form::select('cboCate', $allCates, $productCategory, array('class'=>'selectpicker show-tick', 'multiple', 'title'=>'Chọn 1 hoặc nhiều'))}}
-        </div>
-    </div>
-
-    <div class="form-group">
-        {{ Form::label( "chkActive" , 'Active' , array( 'class'=>'col-lg-2 control-label' ) ) }}
-        <div class="col-lg-10" >
-            <input type="checkbox" id="chkActive" {{$item->active==1?'checked':''}} style="margin: 10px 0 0 0px" />
         </div>
     </div>
 
@@ -75,8 +52,6 @@
         });
 
         function getTopicImg(){
-            //alert('222');
-
             try{
                 var finder = new CKFinder();
                 finder.basePath = '/lib/ckfinder/';	// The path for the installation of CKFinder (default = "/ckfinder/").
@@ -103,14 +78,10 @@
             $.blockUI({ message: 'Vui lòng chờ' });
             name = $('#txtName').val();
             description = $('#txtDescription').val();
-            active = $('#chkActive').is(':checked')?1:0;
             imageFile = $('#imgTopic').attr('src');
-            category = $("#cboCate").val();
-            price = $("#txtPrice").val();
 
-            $.post('/admin/products/edit/{{$item->id}}}',{
-                        name:name, active:active,description:description,
-                        imageFile:imageFile, category: category, price:price
+            $.post('/admin/categories/edit/{{$item->id}}}',{
+                        name:name, description:description,imageFile:imageFile
                     }
                     ,function(result){
                         $.unblockUI();

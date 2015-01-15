@@ -1,86 +1,77 @@
 <?php
 
-class CategoriesController extends \BaseController {
+class CategoriesController extends AdminBaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /categories
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
+	public function __construct(){
+		parent::__construct();
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /categories/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+	public function getList(){
+		$allCates = Category::paginate(10);
+		return View::make('admin.category_list')->with('items', $allCates);
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /categories
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
+	public function getNew(){
+		return View::make('admin.category_new');
 	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /categories/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+	public function postNew(){
+		$checkCate = Category::where('name',Input::get('name'))->first();
+		if($checkCate)
+			return Redirect::back()->with('error','Tên danh mục đã tồn tại')->withInput();
+
+		$newRecord = new Category();
+		$newRecord->name = Input::get('name');
+		$newRecord->description = Input::get('description');
+		$newRecord->alias = CommonHelper::vietnameseToASCII(Input::get('name'));
+		if(!$newRecord->save()){
+			return Response::json(array('success'=>false, 'msg'=>'Lỗi DB. Lưu thất bại'));
+		}
+
+		//Lưu ảnh
+		if(Input::has('imageFile')){
+			$newTopicImg = new Upload();
+			$newTopicImg->path = Input::get('imageFile');
+			$newTopicImg->uploadable_type = UPLOADABLE_TYPE_CATE;
+			$newTopicImg->uploadable_id = $newRecord->id;
+			$newTopicImg->save();
+		}
+
+		return Response::json(array('success'=>true, 'msg'=> 'Thêm mới danh mục thành công'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /categories/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
+	public function getEdit($id){
+		$record = Category::find($id);
+		$topicImg = Upload::where('uploadable_type', UPLOADABLE_TYPE_CATE)->where('uploadable_id', $id)->first();
+		return View::make('admin.category_edit')->with('item', $record)->with('topicImg', $topicImg);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /categories/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
+	public function postEdit($id){
+		$record = Category::find($id);
+		$record->name = Input::get('name');
+		$record->description = Input::get('description');
+		if(!$record->save()){
+			return Response::json(array('success'=>false, 'msg'=>'Lỗi DB. Lưu thất bại'));
+		}
+
+		//Lưu ảnh
+		$topicImg = Upload::where('uploadable_type', UPLOADABLE_TYPE_CATE)->where('uploadable_id', $id);
+		$topicImg->delete();
+		if(Input::has('imageFile')){
+			$newTopicImg = new Upload();
+			$newTopicImg->path = Input::get('imageFile');
+			$newTopicImg->uploadable_type = UPLOADABLE_TYPE_PRODUCT;
+			$newTopicImg->uploadable_id = $record->id;
+			$newTopicImg->save();
+		}
+
+		return Response::json(array('success'=>true, 'msg'=> 'Sửa Danh mục thành công'));
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /categories/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+	public function getDelete($id){
+		$record = Category::find($id);
+		$record->delete();
+		return Redirect::to('/admin/categories/list');
 	}
 
 }

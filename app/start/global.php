@@ -81,5 +81,8 @@ App::down(function()
 
 require app_path().'/filters.php';
 
-define('UPLOAD_TYPE_PRODUCT_TOPIC_IMAGE', 'PRODUCT-THUMB-IMAGE');
 define('UPLOADABLE_TYPE_PRODUCT', 'PRODUCT-IMAGE');
+
+define('UPLOADABLE_TYPE_CATE', 'CATE-IMAGE');
+
+

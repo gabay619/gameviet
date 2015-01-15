@@ -75,7 +75,7 @@
         function deleteProduct(id){
             bootbox.confirm("Bạn chắc chắn muốn xóa?", function(result) {
                 if(result){
-                    window.location.href = '/admin/articles/delete/' + id;
+                    window.location.href = '/admin/products/delete/' + id;
                 }
             });
             $(function(){
