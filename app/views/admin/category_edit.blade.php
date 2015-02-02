@@ -25,6 +25,14 @@
         </div>
     </div>
 
+    {{-- group--}}
+    <div class="form-group">
+        {{ Form::label( "cboGroup" , 'Nhóm' , array( 'class'=>'col-lg-2 control-label' ) ) }}
+        <div class="col-lg-10">
+            {{Form::select('cboGroup', array(''=>'Chọn 1 nhóm')+Config::get('common.category_group_codes'), $item->group_code, array('class'=>'selectpicker show-tick'))}}
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="col-lg-2">
         </div>
@@ -79,9 +87,10 @@
             name = $('#txtName').val();
             description = $('#txtDescription').val();
             imageFile = $('#imgTopic').attr('src');
+            group_code = $('#cboGroup').val();
 
             $.post('/admin/categories/edit/{{$item->id}}}',{
-                        name:name, description:description,imageFile:imageFile
+                        name:name, description:description,imageFile:imageFile, group_code:group_code
                     }
                     ,function(result){
                         $.unblockUI();

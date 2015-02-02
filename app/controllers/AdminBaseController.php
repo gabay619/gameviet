@@ -7,8 +7,8 @@ class AdminBaseController extends \BaseController {
 	);
 
 	public function __construct(){
-//		$this->beforeFilter('auth', array('except'=> $this->whitelist ));
-//		$this->beforeFilter('permission', array('except'=> $this->whitelist ));
+		$this->beforeFilter('auth', array('except'=> $this->whitelist ));
+		$this->beforeFilter('permission', array('except'=> $this->whitelist ));
 	}
 
 	public function index()

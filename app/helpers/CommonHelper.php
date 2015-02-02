@@ -83,5 +83,44 @@ class CommonHelper {
         return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
     }
 
+    public static function getAllCategories(){
+        $allCates = Category::leftJoin('uploads','category.id', '=', 'uploads.uploadable_id')
+            ->select(array('category.*', 'uploads.path'))
+            ->where('uploads.uploadable_type', '=', UPLOADABLE_TYPE_CATE)
+            ->get();
+
+        return $allCates;
+    }
+
+    public static function getCatesByAlias($alias){
+        $allCates = Category::leftJoin('uploads','category.id', '=', 'uploads.uploadable_id')
+            ->select(array('category.*', 'uploads.path'))
+            ->where('uploads.uploadable_type', '=', UPLOADABLE_TYPE_CATE)
+            ->whereIn('alias',$alias)
+            ->get();
+
+        return $allCates;
+    }
+
+    public static function getCatesByGroup($group_code){
+        $allCates = Category::leftJoin('uploads','category.id', '=', 'uploads.uploadable_id')
+            ->select(array('category.*', 'uploads.path'))
+            ->where('uploads.uploadable_type', '=', UPLOADABLE_TYPE_CATE)
+            ->where('group_code',$group_code)
+            ->get();
+
+        return $allCates;
+    }
+
+    public static function getAllNewOrderByUser($user_id){
+        $allOrder = Txn::join('products','product_id','=','products.id')
+            ->where('txns.user_id',$user_id)
+            ->where('txns.status', TXN_STATUS_NEW)
+            ->groupBy('txns.id')
+            ->get(array('txns.*','products.name as product_name'));
+
+        return $allOrder;
+    }
+
 
 }

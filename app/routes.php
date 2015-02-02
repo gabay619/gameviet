@@ -11,19 +11,14 @@
 |
 */
 
-Route::get('/', function()
-{
-//	$user = User::where('UserId', 574)->first();
-	$roles = Auth::user()->roles()->get();
-	foreach($roles as $role){
-		echo $role->role_name."<br>";
-	}
-});
+
 
 Route::get('/test', function() {
-	DB::connection('mysql2')->update('update usertb set UserName = "gabay1" where UserId = ?', array(574));
-	$user1 = User::where('UserId', 574)->first();
-	echo $user1->UserName;
+	return Auth::user()->UserName;
+});
+
+Route::get('/testip', function(){
+    return Request::getClientIp();
 });
 
 //admin
@@ -33,6 +28,8 @@ Route::controller('/admin/categories', 'CategoriesController');
 Route::controller('/admin/reports', 'ReportsController');
 Route::controller('/admin/users', 'UsersController');
 
-Route::get('/test2', function(){
-	return $_SERVER['HHTP_CLIENT_IP'];
-});
+Route::controller('/txns', 'TxnsController');
+//front
+Route::get('/', 'FrontsController@getIndex');
+Route::get('tim-kiem', 'FrontsController@getSearchResult');
+Route::get('/{catSlug}', 'FrontsController@getProductList');

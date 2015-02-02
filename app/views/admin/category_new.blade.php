@@ -13,7 +13,7 @@
     <div class="form-group">
         {{ Form::label( "txtName" , 'Tên (*)' , array( 'class'=>'col-lg-2 control-label' ) ) }}
         <div class="col-lg-10">
-            {{ Form::text( "txtName" , Input::old( "name" ) , array( 'class'=>'form-control' , 'placeholder'=>'Nhập tên Danh mục' ) ) }}
+            {{ Form::text( "txtName" , Input::old( "name" ) , array( 'class'=>'form-control' , 'placeholder'=>'Nhập tên Danh mục', 'required' ) ) }}
         </div>
     </div>
 
@@ -22,6 +22,14 @@
         {{ Form::label( "txtDescription" , 'Mô tả' , array( 'class'=>'col-lg-2 control-label' ) ) }}
         <div class="col-lg-10">
             {{ Form::textarea( "txtDescription" , Input::old( "description" ) , array( 'class'=>'form-control' , 'placeholder'=>'Nhập mô tả', 'style'=>'height:60px' ) ) }}
+        </div>
+    </div>
+
+    {{-- group--}}
+    <div class="form-group">
+        {{ Form::label( "cboGroup" , 'Nhóm' , array( 'class'=>'col-lg-2 control-label' ) ) }}
+        <div class="col-lg-10">
+            {{Form::select('cboGroup', array(''=>'Chọn 1 nhóm')+Config::get('common.category_group_codes'), null, array('class'=>'selectpicker show-tick'))}}
         </div>
     </div>
 
@@ -79,9 +87,10 @@
             name = $('#txtName').val();
             description = $('#txtDescription').val();
             imageFile = $('#imgTopic').attr('src');
+            group_code = $('#cboGroup').val();
 
             $.post('/admin/categories/new',{
-                        name:name, description:description,imageFile:imageFile
+                        name:name, description:description,imageFile:imageFile, group_code:group_code
                     }
                     ,function(result){
                         $.unblockUI();

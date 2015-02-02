@@ -35,6 +35,8 @@ class UsersController extends AdminBaseController {
 				$newRoleUser->role_id = $aRole;
 				$newRoleUser->save();
 			}
+		}else{
+			RoleUser::where('user_id', $user_id)->delete();
 		}
 
 		return Response::json(array('success'=>true, 'msg'=> 'Sửa thành công'));

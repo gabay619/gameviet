@@ -1,0 +1,118 @@
+.modal-dialog {
+  margin-top: 120px !important;
+  width: 700px !important;
+  height: 400px;
+}
+.modal-dialog .modal-header {
+  background: #d11920;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  position: relative;
+}
+.modal-dialog .modal-header button {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 3px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.modal-dialog .modal-header h4 {
+  color: #fff;
+}
+.modal-dialog .modal-body {
+  padding: 15px 20px 5px 20px;
+}
+.modal-dialog .modal-body .order-label {
+  color: #58585a;
+  font-size: 16px;
+  text-transform: uppercase;
+  overflow: hidden;
+  border-bottom: 1px solid #dfdfdf;
+  font-weight: bold;
+}
+.modal-dialog .modal-body .order-label span {
+  display: block;
+  float: left;
+  text-align: center;
+}
+.modal-dialog .modal-body .order-label span:first-child {
+  width: 50%;
+}
+.modal-dialog .modal-body .order-label span:nth-child(2) {
+  width: 30%;
+}
+.modal-dialog .modal-body .order-label span:nth-child(3) {
+  width: 20%;
+}
+.modal-dialog .modal-body .order-info {
+  overflow: hidden;
+}
+.modal-dialog .modal-body .order-info .order-thumb {
+  width: 140px;
+  height: 140px;
+  float: left;
+}
+.modal-dialog .modal-body .order-info .order-thumb img {
+  width: 100% !important;
+  height: 100% !important;
+}
+.modal-dialog .modal-body .order-info .order-name {
+  width: 210px;
+  float: left;
+  padding: 40px 25px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.modal-dialog .modal-body .order-info .order-price {
+  width: 170px;
+  float: left;
+  padding: 40px 25px;
+}
+.modal-dialog .modal-body .order-info .order-price span {
+  font-size: 25px;
+  color: #cc3e4a;
+  font-weight: bold;
+}
+.modal-dialog .modal-body .order-info .order-number {
+  width: 130px;
+  float: left;
+  padding-top: 40px;
+  padding-left: 50px;
+}
+.modal-dialog .modal-body .order-info .order-number input {
+  width: 60px;
+}
+.modal-dialog .modal-footer {
+  overflow: hidden;
+  margin-top: 0;
+  padding: 15px 20px;
+}
+.modal-dialog .modal-footer .order-msg {
+  width: 350px;
+  float: left;
+  padding-right: 15px;
+}
+.modal-dialog .modal-footer .order-msg textarea {
+  height: 80px;
+  clear: both;
+  font-size: 13px;
+}
+.modal-dialog .modal-footer .order-confirm {
+  width: 300px;
+  float: left;
+  text-align: right;
+}
+.modal-dialog .modal-footer .order-confirm .order-total {
+  color: #495259;
+  margin-bottom: 5px;
+}
+.modal-dialog .modal-footer .order-confirm .order-total label {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.modal-dialog .modal-footer .order-confirm .order-total span {
+  font-size: 26px;
+  font-weight: bold;
+}

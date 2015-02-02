@@ -1,0 +1,121 @@
+.modal-dialog{
+  margin-top: 120px !important;
+  width: 700px !important;
+  height: 400px;
+  .modal-header{
+    background: #d11920;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    position: relative;
+    button{
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 3px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    h4{
+      color: #fff;
+    }
+  }
+  .modal-body{
+    padding: 15px 20px 5px 20px;
+    .order-label{
+      color: #58585a;
+      font-size: 16px;
+      text-transform: uppercase;
+      overflow: hidden;
+      border-bottom: 1px solid #dfdfdf;
+      font-weight: bold;
+      span{
+        display: block;
+        float: left;
+        text-align: center;
+        &:first-child{
+          width: 50%;
+        }
+        &:nth-child(2){
+          width: 30%;
+        }
+        &:nth-child(3){
+          width: 20%;
+        }
+      }
+    }
+    .order-info{
+      overflow: hidden;
+      .order-thumb{
+        width: 140px;
+        height: 140px;
+        float: left;
+        img{
+          width: 100% !important;
+          height: 100% !important;
+        }
+      }
+      .order-name{
+        width: 210px;
+        float: left;
+        padding: 40px 25px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .order-price{
+        width: 170px;
+        float: left;
+        padding: 40px 25px;
+        span{
+          font-size: 25px;
+          color: #cc3e4a;
+          font-weight: bold;
+        }
+      }
+      
+      .order-number{
+        width: 130px;
+        float: left;
+        padding-top: 40px;
+        padding-left: 50px;
+        input{
+          width: 60px;
+        }
+      }
+
+    }
+  }
+  .modal-footer{
+    overflow: hidden;
+    margin-top: 0;
+    padding: 15px 20px;
+    .order-msg{
+      width: 350px;
+      float: left;
+      padding-right: 15px;
+      textarea{
+        height: 80px;
+        clear: both;
+        font-size: 13px;
+      }
+    }
+    .order-confirm{
+      width: 300px;
+      float: left;
+      text-align: right;
+      .order-total{
+        color: #495259;
+        margin-bottom: 5px;
+        label{
+          text-transform: uppercase;
+          font-weight: normal;
+        }
+        span{
+          font-size: 26px;
+          font-weight: bold;
+        }
+      }
+    }
+
+  }
+}

@@ -82,7 +82,15 @@ App::down(function()
 require app_path().'/filters.php';
 
 define('UPLOADABLE_TYPE_PRODUCT', 'PRODUCT-IMAGE');
-
 define('UPLOADABLE_TYPE_CATE', 'CATE-IMAGE');
+
+define('TXN_STATUS_NEW',1);
+define('TXN_STATUS_CONFIRMED',2);
+define('TXN_STATUS_COMPLETED',3);
+define('TXN_STATUS_CANCELED',4);
+
+define('GROUP_CODE_MENU', 'MENU');
+define('GROUP_CODE_GAME_CARD', 'GAME_CARD');
+define('GROUP_CODE_PHONE_CARD', 'PHONE_CARD');
 
 

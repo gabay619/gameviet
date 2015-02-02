@@ -24,6 +24,7 @@ class CategoriesController extends AdminBaseController {
 		$newRecord->name = Input::get('name');
 		$newRecord->description = Input::get('description');
 		$newRecord->alias = CommonHelper::vietnameseToASCII(Input::get('name'));
+        $newRecord->group_code = Input::get('group_code');
 		if(!$newRecord->save()){
 			return Response::json(array('success'=>false, 'msg'=>'Lỗi DB. Lưu thất bại'));
 		}
@@ -50,6 +51,8 @@ class CategoriesController extends AdminBaseController {
 		$record = Category::find($id);
 		$record->name = Input::get('name');
 		$record->description = Input::get('description');
+		$record->alias = CommonHelper::vietnameseToASCII(Input::get('name'));
+        $record->group_code = Input::get('group_code');
 		if(!$record->save()){
 			return Response::json(array('success'=>false, 'msg'=>'Lỗi DB. Lưu thất bại'));
 		}
